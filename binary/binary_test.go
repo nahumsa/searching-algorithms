@@ -30,7 +30,7 @@ func TestBinary(t *testing.T) {
 			search = rand.Intn(ints[i])
 		}
 		fmt.Println(search)
-		result := Find(search, list)
+		result := Find(search, list, false)
 
 		if result != want[i] {
 			t.Errorf("Got = %v; want %v", result, want[i])
@@ -45,7 +45,7 @@ func BenchmarkBinaryNotSorted(b *testing.B) {
 			for n := 0; n < b.N; n++ {
 				list := rand.Perm(size)
 				search := rand.Intn(size)
-				Find(search, list)
+				Find(search, list, false)
 			}
 		})
 	}
@@ -57,7 +57,7 @@ func BenchmarkBinarySorted(b *testing.B) {
 			for n := 0; n < b.N; n++ {
 				list := intList(size)
 				search := rand.Intn(size)
-				Find(search, list)
+				Find(search, list, true)
 			}
 		})
 	}

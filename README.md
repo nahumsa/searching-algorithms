@@ -38,9 +38,9 @@ BenchmarkBinaryNotSorted/1600-4        	    3697	    336715 ns/op	  160512 B/op	
 
 ```
 pkg: github.com/nahumsa/searching-algorithms/binary
-BenchmarkBinarySorted/100-4         	  118857	      9702 ns/op	    6720 B/op	     100 allocs/op
-BenchmarkBinarySorted/200-4         	   62858	     20363 ns/op	   15232 B/op	     200 allocs/op
-BenchmarkBinarySorted/400-4         	   28528	     41331 ns/op	   33280 B/op	     400 allocs/op
-BenchmarkBinarySorted/800-4         	   13070	     95804 ns/op	   73216 B/op	     800 allocs/op
-BenchmarkBinarySorted/1600-4        	    6045	    193689 ns/op	  160512 B/op	    1600 allocs/op
+BenchmarkBinarySorted/100-4         	 2176786	       534 ns/op	     896 B/op	       1 allocs/op
+BenchmarkBinarySorted/200-4         	 1307718	       912 ns/op	    1792 B/op	       1 allocs/op
+BenchmarkBinarySorted/400-4         	  664540	      1511 ns/op	    3200 B/op	       1 allocs/op
+BenchmarkBinarySorted/800-4         	  519541	      2652 ns/op	    6528 B/op	       1 allocs/op
+BenchmarkBinarySorted/1600-4        	  212829	      4978 ns/op	   13568 B/op	       1 allocs/op
 ```

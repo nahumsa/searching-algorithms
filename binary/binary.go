@@ -11,8 +11,11 @@ import (
 // List needs to be sorted before the binary search
 // therefore we use mergesort to sort the list.
 // Thus the time complexity is O(N logN), because of the sort.
-func Find(findValue int, list []int) bool {
-	merge.SortInt(list)
+func Find(findValue int, list []int, sorted bool) bool {
+	if !sorted {
+		merge.SortInt(list)
+	}
+
 	i := sort.Search(len(list), func(i int) bool { return list[i] >= findValue })
 	if i < len(list) && list[i] == findValue {
 		return true
