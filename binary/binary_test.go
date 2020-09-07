@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
+	"time"
 )
 
 // intList creates a ordered list with n elements
@@ -43,9 +44,12 @@ func BenchmarkBinaryNotSorted(b *testing.B) {
 	for _, size := range []int{100, 200, 400, 800, 1600} {
 		b.Run(fmt.Sprintf("%v", size), func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
+				b.StopTimer()
 				list := rand.Perm(size)
 				search := rand.Intn(size)
+				b.StartTimer()
 				Find(search, list, false)
+				time.Sleep(1 * time.Microsecond)
 			}
 		})
 	}
@@ -55,9 +59,12 @@ func BenchmarkBinarySorted(b *testing.B) {
 	for _, size := range []int{100, 200, 400, 800, 1600} {
 		b.Run(fmt.Sprintf("%v", size), func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
+				b.StopTimer()
 				list := intList(size)
 				search := rand.Intn(size)
+				b.StartTimer()
 				Find(search, list, true)
+				time.Sleep(1 * time.Microsecond)
 			}
 		})
 	}

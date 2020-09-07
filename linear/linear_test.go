@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
+	"time"
 )
 
 func TestLinear(t *testing.T) {
@@ -34,9 +35,12 @@ func BenchmarkLinear(b *testing.B) {
 	for _, size := range []int{100, 200, 400, 800, 1600} {
 		b.Run(fmt.Sprintf("%v", size), func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
+				b.StopTimer()
 				list := rand.Perm(size)
 				search := rand.Intn(size)
+				b.StartTimer()
 				Find(search, list)
+				time.Sleep(1 * time.Microsecond)
 			}
 		})
 	}
